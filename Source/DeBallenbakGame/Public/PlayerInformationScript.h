@@ -14,7 +14,7 @@ class DEBALLENBAKGAME_API UPlayerInformationScript : public UBlueprintFunctionLi
 {
 	GENERATED_BODY()
 	
-public: 
+public:
 	UFUNCTION(BlueprintCallable, Category = "Swiffers domain")
 	static FString GetName();
 };

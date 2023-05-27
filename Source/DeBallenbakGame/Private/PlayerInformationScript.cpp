@@ -3,7 +3,17 @@
 
 #include "PlayerInformationScript.h"
 
+#include "OnlineSubsystem.h"
+#include "Interfaces/OnlineIdentityInterface.h"
+
 FString UPlayerInformationScript::GetName()
 {
-	return "fiets";
+	FString Name = "unknown name";
+	IOnlineSubsystem* OnlineSubsystem = IOnlineSubsystem::Get();
+	if(IOnlineIdentityPtr IdentityPtr = OnlineSubsystem->GetIdentityInterface())
+	{
+		Name = IdentityPtr->GetPlayerNickname(0);
+	}
+	return Name;
+	
 }
